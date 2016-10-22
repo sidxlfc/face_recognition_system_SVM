@@ -1,0 +1,8 @@
+images = [];
+
+for i=1:40
+    str=strcat('F:\Machine Learning\project2\att_faces\s', int2str(i))
+    image = imread(strcat)
+    
+end
+image = reshape(image, 1, []);

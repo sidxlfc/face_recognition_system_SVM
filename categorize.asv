@@ -1,0 +1,37 @@
+images = [];
+
+for i=1:40
+    str = strcat('F:\Machine Learning\project2\att_faces\s', int2str(i));
+    
+    for j=5:10
+        read = strcat(str, '\' ,int2str(j), '.pgm');
+        image = imread(read);
+        image = reshape(double(image), 1, []);
+        images = [images; image];
+    end
+end
+
+Ws = dlmread('Ws.txt');
+W0s = dlmread('W0s.txt');
+
+indexes = [];
+
+for i=1:200
+   
+   temps = [];
+   
+   for j=1:40
+        temp = dot(images(i,:), Ws(j,:)) + W0s(j);
+        temps = [temps; temp];
+   end
+   
+   m = max(temps);
+   
+   index = find(temps == m);
+   
+   indexes = [indexes; index];
+    
+   x = index*5;
+    
+   if i 
+end
